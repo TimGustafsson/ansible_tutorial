@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min första hemsida</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <nav>
+        <h2>Navigering</h2>
+        <ul>
+            <li><a href="index.html" class="thisPage">Sida 1 - Datakommunikation och webbadresser</a></li>
+            <li><a href="sida2.html">Sida 2 - HTML</a></li>
+            <li><a href="sida3.html">Sida 3 - CSS</a></li>
+        </ul>
+    </nav>
+
+    <header id="firstPageHeader">
+        <h1>F1. Datakommunikation och webbadresser</h1>
+        <h2>Sida 1</h2>
+    </header>
+
+    <main>
+        <h3>Frågor</h3>
+        <ol type="A">
+            <li><b>Vad avses med termerna klient och server?</b>
+                <p>Svar: Klienten är den som skickar en begäran genom webbläsaren (t e x en url/adress) och servern som är en lagringsplats svarar genom att skicka tillbaka den begärda datan om allt stämmer och om den begärda datan hos servern.</p>
+            </li>
+            <li><b>Beskriv vad var och en av protokollen TCP och IP gör på sändande och mottagande sida?</b>
+                <p>Svar: TCP - Som sändare delar protokollet upp ett meddelande i paket, numrerar dem och skickar dem vidare till IPt. Som mottagare sätter det samman paketen till meddelanden och skickar dem till programmet det är avsett för.</p>
+                <p>IP - Som sändare adresserar IP protokollet med en IP-adress. Som mottagare tar det emot paket och skickar vidare till TCP.</p>
+            </li>
+            <li><b>Beskriv de delar som följande URL består utav:</b>
+                <p>http://webbteknik.abc.se:8082/kurs1/uppg/u1.html#fragor</p>
+                <p>Svar: Jag delar upp URLen och beskriver delarna nedan:</p>
+                <ul>
+                    <li>http = tjänsten/protokollen</li>
+                    <li>webbteknik.abc.se = adress till servern</li>
+                    <li>8082 = porten</li>
+                    <li>Kurs1 och uppg = mappar</li>
+                    <li>u1.html = filen som refereras till</li>
+                    <li>#fragor = ett specifikt stycke i filen</li>
+                </ul>
+            </li>
+        </ol>
+    </main>
+    <hr>
+    <footer>
+        Denna webbplats är min första examinationsppgift i kursen Webbteknik 1.
+    </footer>
+</body>
+
+</html>

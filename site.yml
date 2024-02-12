@@ -14,7 +14,7 @@
   tasks:
 
   - name: install apache and php for Oracle Linux
-    tags: apache,oraclelinux,httpd
+    tags: apache,oracle,httpd
     become: yes
     become_user: root
     yum:
@@ -23,6 +23,17 @@
         - php
       state: latest
     when: ansible_distribution == "OracleLinux"
+
+  - name: copy default html file for site
+    tags: apache,oracle,httpd
+    become: yes
+    become_user: root
+    copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
 
 - hosts: db_servers
   become: yes
