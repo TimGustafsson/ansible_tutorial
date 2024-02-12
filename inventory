@@ -1,2 +1,7 @@
+[web_servers]
 tim@192.168.56.50
+
+[db_servers]
 tim@192.168.56.70
+
+[file_servers]

@@ -3,19 +3,12 @@
 - hosts: all
   tasks:
 
-  - name: update repository index
-    yum:
-      update_cache: yes  
-  
-  - name: install apache2 package
+  - name: install apache and php for OL7
     become: yes
     become_user: root
     yum:
-      name: httpd
+      name: 
+        - httpd
+        - php
       state: latest
-  - name: add php support for apache
-    become: yes
-    become_user: root
-    yum:
-      name: php
-      state: latest
+      update_cache: yes

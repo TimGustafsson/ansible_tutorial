@@ -1,0 +1,46 @@
+---
+
+- hosts: all
+  pre_tasks:
+
+  - name: install updates (Oracle Linux)
+    tags: always
+    yum: 
+      update_only: yes
+      update_cache: yes
+    when: ansible_distribution == "OracleLinux"
+
+- hosts: web_servers
+  tasks:
+
+  - name: install apache and php for Oracle Linux
+    tags: apache,oraclelinux,httpd
+    become: yes
+    become_user: root
+    yum:
+      name: 
+        - httpd
+        - php
+      state: latest
+    when: ansible_distribution == "OracleLinux"
+
+- hosts: db_servers
+  become: yes
+  tasks:
+
+  - name: install mariadb package for OL7
+    tags: oraclelinux,mariadb
+    yum:
+      name: mariadb-server
+      state: latest
+    when: ansible_distribution == "OracleLinux"
+
+- hosts: db_servers
+  become: yes
+  tasks: 
+
+  - name: install samba packag
+    tags: samba
+    package:
+      name: samba
+      state: latest  
