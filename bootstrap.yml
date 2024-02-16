@@ -6,7 +6,7 @@
 
   - name: install updates (CentOS)
     tags: always
-    yum: 
+    yum:
       update_cache: yes
     changed_when: no
     when: ansible_distribution == "CentOS"
@@ -23,7 +23,11 @@
     yum:
       update_only: yes
       update_cache: yes
-    when: ansible_distribution == "RedHat"    
+    when: ansible_distribution == "RedHat"
+
+- hosts: all
+  become: true
+  tasks:
 
   - name: create simone user
     tags: always

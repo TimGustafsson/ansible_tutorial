@@ -2,7 +2,6 @@
 
 - hosts: all
   become: yes
-  become_user: root
   pre_tasks:
 
   - name: update repo cache (CentOS)

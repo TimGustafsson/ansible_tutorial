@@ -1,0 +1,37 @@
+---
+
+- hosts: all
+  become: yes
+  pre_tasks:
+
+  - name: Install firewalld
+        apt:
+          name: firewalld
+          state: latest
+        notify:
+          - start firewalld
+
+      - name: start firewalld
+        service:
+          name: firewalld
+          state: started
+          enabled: yes
+        become: yes
+
+      - name: enable 22
+        firewalld:
+          zone: public
+          port: 1234/tcp
+          permanent: true
+          state: enabled
+        become: yes
+
+- hosts: all
+  become: true
+  tasks:
+
+  - name: create simone user
+    tags: always
+    user:
+      name: simone
+      groups: root

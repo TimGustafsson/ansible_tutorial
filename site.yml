@@ -2,8 +2,13 @@
 
 - hosts: all
   become: yes
-  become_user: root
   pre_tasks:
+
+  - name: create simone user
+    tags: always
+    user:
+      name: simone
+      groups: root
 
   - name: update repository index (CentOS)
     tags: always
