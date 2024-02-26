@@ -1,13 +1,13 @@
-#	$OpenBSD: sshd_config,v 1.100 2016/08/15 12:32:04 naddy Exp $
+# $OpenBSD: sshd_config,v 1.100 2016/08/15 12:32:04 naddy Exp $
 
-# This is the sshd server system-wide configuration file.  See
+# This is the sshd server system-wide configuration file. See
 # sshd_config(5) for more information.
 
 # This sshd was compiled with PATH=/usr/local/bin:/usr/bin
 
 # The strategy used for options in the default sshd_config shipped with
 # OpenSSH is to specify options with their default value where
-# possible, but leave them commented.  Uncommented options override the
+# possible, but leave them commented. Uncommented options override the
 # default value.
 
 # If you want to change the port on a SELinux system, you have to tell
@@ -19,7 +19,7 @@
 #ListenAddress 0.0.0.0
 #ListenAddress ::
 
-AllowUsers "{{ ssh_users }}"
+AllowUsers {{ ssh_users }}
 
 HostKey /etc/ssh/ssh_host_rsa_key
 #HostKey /etc/ssh/ssh_host_dsa_key
@@ -46,7 +46,7 @@ SyslogFacility AUTHPRIV
 
 # The default is to check both .ssh/authorized_keys and .ssh/authorized_keys2
 # but this is overridden so installations will only check .ssh/authorized_keys
-AuthorizedKeysFile	.ssh/authorized_keys
+AuthorizedKeysFile .ssh/authorized_keys
 
 #AuthorizedPrincipalsFile none
 
@@ -87,7 +87,7 @@ GSSAPICleanupCredentials no
 # Set this to 'yes' to enable PAM authentication, account processing,
 # and session processing. If this is enabled, PAM authentication will
 # be allowed through the ChallengeResponseAuthentication and
-# PasswordAuthentication.  Depending on your PAM configuration,
+# PasswordAuthentication. Depending on your PAM configuration,
 # PAM authentication via ChallengeResponseAuthentication may bypass
 # the setting of "PermitRootLogin without-password".
 # If you just want the PAM account and session checks to run without
@@ -131,11 +131,12 @@ AcceptEnv LC_IDENTIFICATION LC_ALL LANGUAGE
 AcceptEnv XMODIFIERS
 
 # override default of no subsystems
-Subsystem	sftp	/usr/libexec/openssh/sftp-server
+Subsystem sftp /usr/libexec/openssh/sftp-server
 
 # Example of overriding settings on a per-user basis
 #Match User anoncvs
-#	X11Forwarding no
-#	AllowTcpForwarding no
-#	PermitTTY no
-#	ForceCommand cvs server
+# X11Forwarding no
+# AllowTcpForwarding no
+# PermitTTY no
+# ForceCommand cvs server
+

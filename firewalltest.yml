@@ -1,0 +1,25 @@
+- name: practice with the firewall
+  hosts: file_servers
+  become: yes
+  tasks:
+    
+  - name: install packages
+    yum:
+      name: httpd, firewalld
+      state: present
+
+  - name: configure services
+    service:
+      name: "{{ item }}"
+      state: started
+      enabled: yes
+    loop:
+      - httpd
+      - firewalld
+
+  - name: configure the firewall
+    firewalld:
+      port: 59750/tcp
+      state: enabled
+      permanent: yes
+      immediate: yes

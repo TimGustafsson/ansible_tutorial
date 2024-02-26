@@ -4,54 +4,48 @@
   become: yes
   pre_tasks:
 
-  - name: create simone user
-    tags: always
-    user:
-      name: simone
-      groups: root
-
   - name: update repository index (CentOS)
     tags: always
     yum:
       update_cache: yes
-    changed_when: no
+    changed_when: false
     when: ansible_distribution == "CentOS"
 
   - name: update repository index (Ubuntu)
     tags: always
     apt:
       update_cache: yes
-    changed_when: no
+    changed_when: false
     when: ansible_distribution == "Ubuntu"
 
   - name: update repository index (Oracle Linux)
     tags: always
     yum:
       update_cache: yes
-    changed_when: no
+    changed_when: false
     when: ansible_distribution == "RedHat"
 
 - hosts: all
-  become: yes
+  become: true
   roles:
     - base
 
 - hosts: workstations
-  become: yes
+  become: true
   roles:
     - workstations
 
 - hosts: web_servers
-  become: yes
+  become: true
   roles:
     - web_servers
 
 - hosts: db_servers
-  become: yes
+  become: true
   roles:
     - db_servers
 
 - hosts: file_servers
-  become: yes
+  become: true
   roles:
     - file_servers
